@@ -35,7 +35,6 @@ out/
 *.sln.docstates
 
 # Build Results
-*.dll
 *.exe
 *.pdb
 *.cache
