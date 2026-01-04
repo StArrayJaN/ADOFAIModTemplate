@@ -51,6 +51,8 @@ dotnet new adofaimod -n MyModName -g "C:\Games\ADOFAI\A Dance of Fire and Ice.ex
 - `-v, --version`: 版本号
 - `-g, --game-path`: 游戏 exe 路径（可选，用于自动部署和启动游戏）
 
+也可从JetBrains Rider的"新建解决方案"的左侧项目菜单中创建项目。
+
 ## 依赖库设置
 
 模板需要 ADOFAI 游戏的依赖库。请将游戏的 DLL 文件复制到 `lib/` 文件夹：
