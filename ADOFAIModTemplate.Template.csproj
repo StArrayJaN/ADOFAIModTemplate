@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- 模板包配置 -->
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageId>StArray.ADOFAIModTemplate</PackageId>
+    <Title>Base ADOFAI Mod Template</Title>
+    <Authors>StArray</Authors>
+    <Description>A Dance of Fire and Ice UnityModManager Mod 开发模板。支持 Harmony 补丁、Mod 设置、自动部署和启动游戏。</Description>
+    <PackageTags>dotnet-new;templates;adofai;umm;mod;unity;harmony;game</PackageTags>
+    <PackageProjectUrl>https://github.com/StArrayJaN/ADOFAIModTemplate</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/StArrayJaN/ADOFAIModTemplate</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright (c) 2026</Copyright>
+    
+    <!-- 模板打包设置 -->
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128;NU5100</NoWarn>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <EnableDefaultItems>false</EnableDefaultItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 包含所有模板文件，排除不需要的文件和文件夹 -->
+    <Content Include="**\*" 
+             Exclude="**\bin\**;**\obj\**;**\out\**;**\.idea\**;**\.vs\**;**\.idea\**;**\*.user;**\*.suo;**\*.sln;**\*.sln.DotSettings.user;**\*.nupkg;**\*.snupkg;**\ADOFAIModTemplate.Template.csproj;**\pack.bat" />
+    
+    <!-- 包含 README 作为包文档 -->
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 确保模板配置文件被包含 -->
+    <Content Include=".template.config\**\*" />
+  </ItemGroup>
+
+</Project>

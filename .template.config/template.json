@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "StArray",
+  "classifications": [
+    "ADOFAI",
+    "UMM",
+    "Mod",
+    "Game"
+  ],
+  "identity": "StArray.ADOFAIModTemplate",
+  "name": "Base ADOFAI Mod Template",
+  "shortName": "adofaimod",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "ADOFAIModTemplate",
+  "preferNameDirectory": true,
+  "symbols": {
+    "ModDescription": {
+      "type": "parameter",
+      "datatype": "text",
+      "replaces": "A Dance of Fire and Ice Mod Template",
+      "defaultValue": "My ADOFAI Mod",
+      "description": "Mod 的描述"
+    },
+    "Author": {
+      "type": "parameter",
+      "datatype": "text",
+      "replaces": "Your Name",
+      "defaultValue": "Anonymous",
+      "description": "作者名称"
+    },
+    "Version": {
+      "type": "parameter",
+      "datatype": "text",
+      "replaces": "1.0.0",
+      "defaultValue": "1.0.0",
+      "description": "初始版本号"
+    },
+    "GameExePath": {
+      "type": "parameter",
+      "datatype": "text",
+      "replaces": "GAME_EXE_PATH_PLACEHOLDER",
+      "defaultValue": "",
+      "description": "游戏 exe 路径（可选，用于自动部署和启动）"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "bin/**",
+            "obj/**",
+            "out/**",
+            ".vs/**",
+            ".idea/**",
+            "*.user",
+            "*.suo",
+            "*.sln",
+            "*.sln.DotSettings.user",
+            "*.nupkg",
+            "*.snupkg",
+            "*.Template.csproj",
+            "pack.bat",
+            "README.md"
+          ]
+        }
+      ]
+    }
+  ]
+}

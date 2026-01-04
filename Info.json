@@ -1,0 +1,12 @@
+{
+  "Id": "ADOFAIModTemplate",
+  "DisplayName": "ADOFAIModTemplate",
+  "Author": "Your Name",
+  "Version": "1.0.0",
+  "ManagerVersion": "0.27.0",
+  "Requirements": [],
+  "AssemblyName": "ADOFAIModTemplate.dll",
+  "EntryMethod": "ADOFAIModTemplate.Main.Load",
+  "HomePage": "",
+  "Repository": ""
+}
