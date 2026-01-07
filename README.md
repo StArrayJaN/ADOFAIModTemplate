@@ -60,6 +60,12 @@ dotnet new adofaimod -n MyModName -d "My Mod Description" -a "Your Name" -v "1.0
 # With game path (auto-deploy and launch)
 # 带游戏路径（自动部署和启动）
 dotnet new adofaimod -n MyModName -g "C:\Games\ADOFAI\A Dance of Fire and Ice.exe"
+
+# Create solution file (if needed)
+# 创建解决方案文件（如果需要）
+cd MyModName
+dotnet new sln --name MyModName
+dotnet sln add MyModName.csproj
 ```
 
 ### Parameters / 参数说明
@@ -99,20 +105,26 @@ You can find these files in the game installation directory:
 你可以从游戏安装目录的以下位置找到这些文件：
 
 - `<Game Directory>/A Dance of Fire and Ice_Data/Managed/`
-- `<Game Directory>/Mods/UnityModManager/` (UMM related DLLs / UMM 相关 DLL)
+- `<Game Directory>/A Dance of Fire and Ice_Data/Managed/UnityModManager/` (UMM related DLLs / UMM 相关 DLL)
 
 ## Build Project / 构建项目
 
-### Using Visual Studio / 使用 Visual Studio
-1. Open `YourModName.sln` / 打开 `YourModName.sln`
-2. Select Debug or Release configuration / 选择 Debug 或 Release 配置
-3. Press F6 or click "Build" -> "Build Solution" / 按 F6 或点击"生成" -> "生成解决方案"
-4. Files will be automatically copied to `out/` folder / 文件会自动复制到 `out/` 文件夹
-5. If game path is configured, mod will be deployed and game launched (if enabled) / 如果配置了游戏路径，会自动部署 Mod 并启动游戏（如果启用）
+### Using Visual Studio or JetBrains Rider / 使用 Visual Studio 或 JetBrains Rider
+
+1. Open the `.csproj` file or `.sln` file (if created) in Visual Studio or Rider / 在 Visual Studio 或 Rider 中打开 `.csproj` 或 `.sln` 文件（如果已创建）
+2. The IDE will automatically create a solution if opening .csproj directly / 如果直接打开 .csproj，IDE 会自动创建解决方案
+3. Select Debug or Release configuration / 选择 Debug 或 Release 配置
+4. Press F6 (VS) or Ctrl+Shift+F9 (Rider) or click "Build" -> "Build Solution" / 按 F6 (VS) 或 Ctrl+Shift+F9 (Rider) 或点击"生成" -> "生成解决方案"
+5. Files will be automatically copied to `out/` folder / 文件会自动复制到 `out/` 文件夹
+6. If game path is configured, mod will be deployed and game launched (if enabled) / 如果配置了游戏路径，会自动部署 Mod 并启动游戏（如果启用）
 
 ### Using Command Line / 使用命令行
 ```bash
+# Build with solution file / 使用解决方案文件构建
 dotnet build YourModName.sln -c Release
+
+# Or build project directly / 或直接构建项目
+dotnet build YourModName.csproj -c Release
 ```
 
 ### Configure Game Path and Auto-Launch / 配置游戏路径和自动启动
