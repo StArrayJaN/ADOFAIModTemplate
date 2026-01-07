@@ -1,61 +1,62 @@
 using UnityModManagerNet;
-
+using UnityEngine;
 namespace ADOFAIModTemplate
 {
     /// <summary>
+    /// Mod settings class
     /// Mod 设置类
     /// </summary>
     public class ModSettings : UnityModManager.ModSettings
     {
         /// <summary>
-        /// 示例布尔设置
+        /// Example boolean setting / 示例布尔设置
         /// </summary>
         public bool EnableFeature = true;
 
         /// <summary>
-        /// 示例整数设置
+        /// Example integer setting / 示例整数设置
         /// </summary>
         public int ExampleValue = 100;
 
         /// <summary>
-        /// 示例字符串设置
+        /// Example string setting / 示例字符串设置
         /// </summary>
         public string ExampleText = "Hello World";
 
         /// <summary>
-        /// 绘制 Mod GUI
+        /// Draw mod GUI / 绘制 Mod GUI
         /// </summary>
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            // 示例：绘制设置界面
-            UnityEngine.GUILayout.Label("=== Mod 设置 ===");
+            // Example: Draw settings UI / 示例：绘制设置界面
+            GUILayout.Label("=== Mod Settings / Mod 设置 ===");
             
-            EnableFeature = UnityEngine.GUILayout.Toggle(
+            EnableFeature = GUILayout.Toggle(
                 EnableFeature, 
-                "启用功能"
+                "Enable Feature / 启用功能"
             );
             
-            UnityEngine.GUILayout.BeginHorizontal();
-            UnityEngine.GUILayout.Label("示例数值: ", UnityEngine.GUILayout.Width(100));
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Example Value / 示例数值: ", GUILayout.Width(150));
             if (int.TryParse(
-                UnityEngine.GUILayout.TextField(ExampleValue.ToString(), UnityEngine.GUILayout.Width(100)),
+                GUILayout.TextField(ExampleValue.ToString(), GUILayout.Width(100)),
                 out int newValue))
             {
                 ExampleValue = newValue;
             }
-            UnityEngine.GUILayout.EndHorizontal();
+            GUILayout.EndHorizontal();
             
-            UnityEngine.GUILayout.BeginHorizontal();
-            UnityEngine.GUILayout.Label("示例文本: ", UnityEngine.GUILayout.Width(100));
-            ExampleText = UnityEngine.GUILayout.TextField(
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Example Text / 示例文本: ", GUILayout.Width(150));
+            ExampleText = GUILayout.TextField(
                 ExampleText, 
-                UnityEngine.GUILayout.Width(200)
+                GUILayout.Width(200)
             );
-            UnityEngine.GUILayout.EndHorizontal();
+            GUILayout.EndHorizontal();
         }
 
         /// <summary>
-        /// 保存设置时调用
+        /// Called when saving GUI / 保存设置时调用
         /// </summary>
         public void OnSaveGUI(UnityModManager.ModEntry modEntry)
         {
@@ -63,7 +64,7 @@ namespace ADOFAIModTemplate
         }
 
         /// <summary>
-        /// 保存设置
+        /// Save settings / 保存设置
         /// </summary>
         public override void Save(UnityModManager.ModEntry modEntry)
         {
@@ -71,7 +72,7 @@ namespace ADOFAIModTemplate
         }
 
         /// <summary>
-        /// 加载设置
+        /// Load settings / 加载设置
         /// </summary>
         public static ModSettings Load(UnityModManager.ModEntry modEntry)
         {

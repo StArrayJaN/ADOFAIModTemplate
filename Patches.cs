@@ -2,38 +2,44 @@ using HarmonyLib;
 
 namespace ADOFAIModTemplate
 {
+    /// <summary>
+    /// Harmony patches for the mod
+    /// Mod 的 Harmony 补丁
+    /// </summary>
     public static class Patches
     {
         /// <summary>
-        /// scrController.Start 补丁
+        /// Patch for scrController.Start method
+        /// scrController.Start 方法的补丁
         /// </summary>
         [HarmonyPatch(typeof(scrController), "Start")]
         public static class ControllerStartPatch
         {
             /// <summary>
-            /// 前置补丁
+            /// Prefix patch - runs before the original method
+            /// 前置补丁 - 在原方法之前运行
             /// </summary>
-            /// <param name="__instance">scrController</param>
+            /// <param name="__instance">scrController instance / scrController 实例</param>
             public static void Prefix(scrController __instance)
             {
                 Main.Mod?.Logger.Log("Controller start");
             }
 
             /// <summary>
-            /// 后置补丁
+            /// Postfix patch - runs after the original method
+            /// 后置补丁 - 在原方法之后运行
             /// </summary>
-            /// <param name="__instance">scrController</param> 
+            /// <param name="__instance">scrController instance / scrController 实例</param> 
             public static void Postfix(scrController __instance)
             {
                 Main.Mod?.Logger.Log("Controller started");
 
-                // 示例：使用设置
+                // Example: Use settings / 示例：使用设置
                 if (Main.Settings.EnableFeature)
                 {
-                    Main.Mod?.Logger.Log($"功能已启用，示例数值: {Main.Settings.ExampleValue}");
+                    Main.Mod?.Logger.Log($"Feature enabled, example value: {Main.Settings.ExampleValue}");
                 }
             }
         }
     }
-    
 }

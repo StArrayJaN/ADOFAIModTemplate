@@ -1,72 +1,173 @@
 # ADOFAI UMM Mod Template
 
+A Dance of Fire and Ice (ADOFAI) UnityModManager (UMM) Mod development template.
+
 这是一个 A Dance of Fire and Ice (ADOFAI) 的 UnityModManager (UMM) Mod 开发模板项目。
 
-## 项目结构
+## Project Structure / 项目结构
 
 ```
-项目根目录/
-├── ADOFAIModTemplate.csproj    # 项目文件
-├── Main.cs                      # 主 Mod 类
-├── ModSettings.cs               # Mod 设置类
-├── Patches.cs                   # Harmony 补丁
-├── Info.json                    # UMM Mod 信息文件
+Project Root / 项目根目录/
+├── ADOFAIModTemplate.csproj    # Project file / 项目文件
+├── Main.cs                      # Main mod class / 主 Mod 类
+├── ModSettings.cs               # Mod settings class / Mod 设置类
+├── Patches.cs                   # Harmony patches / Harmony 补丁
+├── Info.json                    # UMM mod info file / UMM Mod 信息文件
 ├── Properties/
-│   └── AssemblyInfo.cs          # 程序集信息
-└── lib/                   # 游戏依赖库
+│   └── AssemblyInfo.cs          # Assembly info / 程序集信息
+└── Libraries/                   # Game dependencies (add manually) / 游戏依赖库（需要手动添加）
 ```
 
-## 开发环境
+## Features / 功能特性
+
+- ✅ UnityModManager integration / UnityModManager 集成
+- ✅ Harmony patch support / Harmony 补丁支持
+- ✅ Mod settings with GUI / 带 GUI 的 Mod 设置
+- ✅ Auto-deploy to game folder / 自动部署到游戏文件夹
+- ✅ Optional auto-launch game / 可选的自动启动游戏
+- ✅ Bilingual comments (English/Chinese) / 双语注释（英文/中文）
+
+## Development Environment / 开发环境
 
 - .NET Framework 4.8.1
-- Visual Studio 2019 或更高版本 / JetBrains Rider
+- Visual Studio 2019+ / JetBrains Rider
+- UnityModManager 0.27.0+
+- Harmony 2.3.3
 
-## 使用此模板
+## Using This Template / 使用此模板
 
-### 安装模板
+### Install Template / 安装模板
 ```bash
-# 从本地文件夹安装（开发测试）
-dotnet new install . --force
+# Install from local NuGet package
+# 从本地 NuGet 包安装
+dotnet new install path\to\StArray.ADOFAIModTemplate.1.0.0.nupkg
 
-# 从 NuGet 包安装
-dotnet new install .\StArray.ADOFAIModTemplate.1.0.0.nupkg
+# Or install from local repository
+# 或从本地存储库安装
+dotnet new install path\to\ADOFAIModTemplate
 ```
 
-### 从模板创建新项目
+### Create New Project / 从模板创建新项目
 ```bash
+# Basic usage (use --name or -n to specify project name)
 # 基础用法（使用 --name 或 -n 指定项目名称）
 dotnet new adofaimod --name MyModName
 
+# With all parameters
 # 完整参数
 dotnet new adofaimod -n MyModName -d "My Mod Description" -a "Your Name" -v "1.0.0"
 
+# With game path (auto-deploy and launch)
 # 带游戏路径（自动部署和启动）
 dotnet new adofaimod -n MyModName -g "C:\Games\ADOFAI\A Dance of Fire and Ice.exe"
 ```
 
-### 参数说明
-- `-n, --name`: 项目名称（必需，会自动替换所有 ADOFAIModTemplate）
-- `-d, --description`: Mod 描述
-- `-a, --author`: 作者名称
-- `-v, --version`: 版本号
-- `-g, --game-path`: 游戏 exe 路径（可选，用于自动部署和启动游戏）
+### Parameters / 参数说明
+- `-n, --name`: Project name (required, replaces all ADOFAIModTemplate) / 项目名称（必需，会自动替换所有 ADOFAIModTemplate）
+- `-d, --description`: Mod description / Mod 描述
+- `-a, --author`: Author name / 作者名称
+- `-v, --version`: Version number / 版本号
+- `-g, --game-path`: Game exe path (optional, for auto-deploy and launch) / 游戏 exe 路径（可选，用于自动部署和启动游戏）
 
-也可从JetBrains Rider的"新建解决方案"的左侧项目菜单中创建项目。
+You can also create projects from JetBrains Rider's "New Solution" menu.
 
-## 依赖库设置
+也可从 JetBrains Rider 的"新建解决方案"的左侧项目菜单中创建项目。
 
-模板需要 ADOFAI 游戏的依赖库。请将游戏的 DLL 文件复制到 `lib/` 文件夹：
+### Uninstall Template / 卸载模板
+```bash
+dotnet new uninstall StArray.ADOFAIModTemplate
+```
+
+## Setup Dependencies / 依赖库设置
+
+The template requires ADOFAI game dependencies. Copy the game DLL files to the `Libraries/` folder:
+
+模板需要 ADOFAI 游戏的依赖库。请将游戏的 DLL 文件复制到 `Libraries/` 文件夹：
 
 ```
-lib/
+Libraries/
 ├── ModManager/
 │   ├── 0Harmony.dll
 │   └── UnityModManager.dll
 ├── Assembly-CSharp.dll
 ├── UnityEngine.dll
-└── ... (其他 Unity 模块)
+└── ... (other Unity modules / 其他 Unity 模块)
 ```
 
+You can find these files in the game installation directory:
+
 你可以从游戏安装目录的以下位置找到这些文件：
-- `<游戏目录>/A Dance of Fire and Ice_Data/Managed/`
-- `<游戏目录>/A Dance of Fire and Ice_Data/Managed/UnityModManager/` (UMM 相关 DLL)
+
+- `<Game Directory>/A Dance of Fire and Ice_Data/Managed/`
+- `<Game Directory>/Mods/UnityModManager/` (UMM related DLLs / UMM 相关 DLL)
+
+## Build Project / 构建项目
+
+### Using Visual Studio / 使用 Visual Studio
+1. Open `YourModName.sln` / 打开 `YourModName.sln`
+2. Select Debug or Release configuration / 选择 Debug 或 Release 配置
+3. Press F6 or click "Build" -> "Build Solution" / 按 F6 或点击"生成" -> "生成解决方案"
+4. Files will be automatically copied to `out/` folder / 文件会自动复制到 `out/` 文件夹
+5. If game path is configured, mod will be deployed and game launched (if enabled) / 如果配置了游戏路径，会自动部署 Mod 并启动游戏（如果启用）
+
+### Using Command Line / 使用命令行
+```bash
+dotnet build YourModName.sln -c Release
+```
+
+### Configure Game Path and Auto-Launch / 配置游戏路径和自动启动
+
+If you didn't specify the game path when creating the project, you can manually edit the `.csproj` file:
+
+如果创建项目时没有指定游戏路径，可以手动编辑 `.csproj` 文件：
+
+```xml
+<PropertyGroup>
+  <GameExePath>C:\Games\ADOFAI\A Dance of Fire and Ice.exe</GameExePath>
+  <AutoLaunchGame>true</AutoLaunchGame>
+</PropertyGroup>
+```
+
+**Properties / 属性:**
+- `GameExePath`: Path to game executable / 游戏可执行文件路径
+- `AutoLaunchGame`: Set to `true` to auto-launch game after build, `false` to disable / 设为 `true` 构建后自动启动游戏，`false` 禁用
+
+After configuration, each build will automatically:
+
+配置后，每次构建都会自动：
+
+1. Copy files to `out/` folder / 复制文件到 `out/` 文件夹
+2. Deploy to game's `Mods/YourModName/` folder / 部署到游戏的 `Mods/YourModName/` 文件夹
+3. Launch the game (if `AutoLaunchGame` is `true`) / 启动游戏（如果 `AutoLaunchGame` 为 `true`）
+
+## Install Mod / 安装 Mod
+
+After building, copy all files from the `out/` folder to the game's Mods directory:
+
+构建完成后，将 `out/` 文件夹中的所有文件复制到游戏的 Mods 目录：
+
+```
+<Game Directory>/Mods/YourModName/
+```
+
+Or use the auto-deploy feature by configuring `GameExePath` in the `.csproj` file.
+
+或者通过在 `.csproj` 文件中配置 `GameExePath` 使用自动部署功能。
+
+## Development Guide / 开发指南
+
+1. Implement your mod functionality in `Main.cs` / 在 `Main.cs` 中实现你的 Mod 功能
+2. Use Harmony to create patch classes to modify game behavior / 使用 Harmony 创建补丁类来修改游戏行为
+3. Update mod information in `Info.json` / 更新 `Info.json` 中的 Mod 信息
+4. Add settings in `ModSettings.cs` / 在 `ModSettings.cs` 中添加设置
+5. Add more class files as needed / 根据需要添加更多类文件
+
+## License / 许可证
+
+GPL-3.0-or-later
+
+## Links / 链接
+
+- Repository / 仓库: https://github.com/StArrayJaN/ADOFAIModTemplate
+- ADOFAI: https://store.steampowered.com/app/977950/A_Dance_of_Fire_and_Ice/
+- UnityModManager: https://www.nexusmods.com/site/mods/21
