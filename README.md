@@ -15,7 +15,7 @@ Project Root / 项目根目录/
 ├── Info.json                    # UMM mod info file / UMM Mod 信息文件
 ├── Properties/
 │   └── AssemblyInfo.cs          # Assembly info / 程序集信息
-└── Libraries/                   # Game dependencies (add manually) / 游戏依赖库（需要手动添加）
+└── lib/                         # Game dependencies (add manually) / 游戏依赖库（需要手动添加）
 ```
 
 ## Features / 功能特性
@@ -48,6 +48,9 @@ dotnet new install path\to\ADOFAIModTemplate
 ```
 
 ### Create New Project / 从模板创建新项目
+
+**Using Command Line / 使用命令行:**
+
 ```bash
 # Basic usage (use --name or -n to specify project name)
 # 基础用法（使用 --name 或 -n 指定项目名称）
@@ -68,16 +71,24 @@ dotnet new sln --name MyModName
 dotnet sln add MyModName.csproj
 ```
 
+**Using IDE / 使用 IDE:**
+
+After installing the template, you can also create projects directly from your IDE:
+
+安装模板后，也可以直接从 IDE 中创建项目：
+
+- **Visual Studio**: Create a new project -> Search templates -> Search for "ADOFAI" or "Base ADOFAI Mod Template"
+- **Visual Studio**: 创建新项目 -> 搜索模板 -> 搜索 "ADOFAI" 或 "Base ADOFAI Mod Template"
+
+- **JetBrains Rider**: File (in editor) -> New Solution -> Custom Templates -> Base ADOFAI Mod Template
+- **JetBrains Rider**: 文件（在编辑器中）-> 新建解决方案 -> 自定义模板 -> Base ADOFAI Mod Template
+
 ### Parameters / 参数说明
 - `-n, --name`: Project name (required, replaces all ADOFAIModTemplate) / 项目名称（必需，会自动替换所有 ADOFAIModTemplate）
 - `-d, --description`: Mod description / Mod 描述
 - `-a, --author`: Author name / 作者名称
 - `-v, --version`: Version number / 版本号
 - `-g, --game-path`: Game exe path (optional, for auto-deploy and launch) / 游戏 exe 路径（可选，用于自动部署和启动游戏）
-
-You can also create projects from JetBrains Rider's "New Solution" menu.
-
-也可从 JetBrains Rider 的"新建解决方案"的左侧项目菜单中创建项目。
 
 ### Uninstall Template / 卸载模板
 ```bash
@@ -86,12 +97,12 @@ dotnet new uninstall StArray.ADOFAIModTemplate
 
 ## Setup Dependencies / 依赖库设置
 
-The template requires ADOFAI game dependencies. Copy the game DLL files to the `Libraries/` folder:
+The template requires ADOFAI game dependencies. Copy the game DLL files to the `lib/` folder:
 
-模板需要 ADOFAI 游戏的依赖库。请将游戏的 DLL 文件复制到 `Libraries/` 文件夹：
+模板需要 ADOFAI 游戏的依赖库。请将游戏的 DLL 文件复制到 `lib/` 文件夹：
 
 ```
-Libraries/
+lib/
 ├── ModManager/
 │   ├── 0Harmony.dll
 │   └── UnityModManager.dll
