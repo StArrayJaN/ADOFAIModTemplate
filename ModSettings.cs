@@ -6,7 +6,7 @@ namespace ADOFAIModTemplate
     /// Mod settings class
     /// Mod 设置类
     /// </summary>
-    public class ModSettings : UnityModManager.ModSettings
+    public class Settings : UnityModManager.ModSettings
     {
         /// <summary>
         /// Example boolean setting / 示例布尔设置
@@ -74,9 +74,9 @@ namespace ADOFAIModTemplate
         /// <summary>
         /// Load settings / 加载设置
         /// </summary>
-        public static ModSettings Load(UnityModManager.ModEntry modEntry)
+        public static Settings Load(UnityModManager.ModEntry modEntry)
         {
-            return Load<ModSettings>(modEntry);
+            return Load<Settings>(modEntry);
         }
     }
 }

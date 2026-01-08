@@ -23,7 +23,7 @@ namespace ADOFAIModTemplate
         /// <summary>
         /// Mod settings / Mod 设置
         /// </summary>
-        public static ModSettings Settings { get; private set; } = null!;
+        public static Settings Settings { get; private set; } = null!;
 
         /// <summary>
         /// Mod entry point called by UnityModManager
@@ -34,7 +34,7 @@ namespace ADOFAIModTemplate
             Mod = modEntry;
             
             // Load settings / 加载设置
-            Settings = ModSettings.Load(modEntry);
+            Settings = Settings.Load(modEntry);
             
             // Setup callbacks / 设置回调
             modEntry.OnToggle = OnToggle;
