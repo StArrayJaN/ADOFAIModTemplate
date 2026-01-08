@@ -10,7 +10,7 @@ A Dance of Fire and Ice (ADOFAI) UnityModManager (UMM) Mod development template.
 Project Root / 项目根目录/
 ├── ADOFAIModTemplate.csproj    # Project file / 项目文件
 ├── Main.cs                      # Main mod class / 主 Mod 类
-├── ModSettings.cs               # Mod settings class / Mod 设置类
+├── Settings.cs               # Mod settings class / Mod 设置类
 ├── Patches.cs                   # Harmony patches / Harmony 补丁
 ├── Info.json                    # UMM mod info file / UMM Mod 信息文件
 ├── Properties/
@@ -182,7 +182,7 @@ Or use the auto-deploy feature by configuring `GameExePath` in the `.csproj` fil
 1. Implement your mod functionality in `Main.cs` / 在 `Main.cs` 中实现你的 Mod 功能
 2. Use Harmony to create patch classes to modify game behavior / 使用 Harmony 创建补丁类来修改游戏行为
 3. Update mod information in `Info.json` / 更新 `Info.json` 中的 Mod 信息
-4. Add settings in `ModSettings.cs` / 在 `ModSettings.cs` 中添加设置
+4. Add settings in `Settings.cs` / 在 `Settings.cs` 中添加设置
 5. Add more class files as needed / 根据需要添加更多类文件
 
 ## License / 许可证
