@@ -66,6 +66,7 @@
             "*.snupkg",
             "*.Template.csproj",
             "pack.bat",
+            "testmod/**",
             "README.md"
           ]
         }

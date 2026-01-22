@@ -58,6 +58,9 @@ namespace ADOFAIModTemplate
             {
                 modEntry.Logger.Log("Mod enabled / Mod 已启用");
                 Harmony?.PatchAll(Assembly.GetExecutingAssembly());
+                
+                // Test resource loading / 测试资源加载
+                TestResourceLoading();
             }
             else
             {
@@ -65,6 +68,32 @@ namespace ADOFAIModTemplate
                 Harmony?.UnpatchAll();
             }
             return true;
+        }
+
+        /// <summary>
+        /// Test resource loading functionality
+        /// 测试资源加载功能
+        /// </summary>
+        private static void TestResourceLoading()
+        {
+            Mod?.Logger.Log("=== Testing Resource Loading / 测试资源加载 ===");
+            
+            // Test loading text file / 测试加载文本文件
+            string testText = ResourceLoader.LoadTextFile("test.txt");
+            if (!string.IsNullOrEmpty(testText))
+            {
+                Mod?.Logger.Log($"Test text content / 测试文本内容:\n{testText}");
+            }
+            
+            // List all files in Resources folder / 列出 Resources 文件夹中的所有文件
+            string[] files = ResourceLoader.GetFiles();
+            Mod?.Logger.Log($"Found {files.Length} file(s) in Resources folder / 在 Resources 文件夹中找到 {files.Length} 个文件:");
+            foreach (string file in files)
+            {
+                Mod?.Logger.Log($"  - {file}");
+            }
+            
+            Mod?.Logger.Log("=== Resource Loading Test Complete / 资源加载测试完成 ===");
         }
     }
 }

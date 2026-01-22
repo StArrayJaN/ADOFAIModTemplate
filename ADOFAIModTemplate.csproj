@@ -289,6 +289,9 @@
     <None Update="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Resources\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <PropertyGroup>
@@ -301,11 +304,14 @@
       <OutDir>$(ProjectDir)out\</OutDir>
     </PropertyGroup>
     <MakeDir Directories="$(OutDir)" />
+    <MakeDir Directories="$(OutDir)Resources" />
     <ItemGroup>
       <FilesToCopy Include="$(OutputPath)$(AssemblyName).dll" />
       <FilesToCopy Include="$(ProjectDir)Info.json" />
+      <ResourceFiles Include="$(ProjectDir)Resources\**\*" Exclude="$(ProjectDir)Resources\**\*\" />
     </ItemGroup>
-    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(ResourceFiles)" DestinationFolder="$(OutDir)Resources\%(RecursiveDir)" SkipUnchangedFiles="true" />
     <Message Text="Files copied to out folder: $(OutDir)" Importance="high" />
   </Target>
 
@@ -315,10 +321,13 @@
       <ModsDir>$(GameDir)\Mods\$(AssemblyName)\</ModsDir>
     </PropertyGroup>
     <MakeDir Directories="$(ModsDir)" />
+    <MakeDir Directories="$(ModsDir)Resources" />
     <ItemGroup>
-      <ModFiles Include="$(ProjectDir)out\*.*" />
+      <ModFiles Include="$(ProjectDir)out\*.*" Exclude="$(ProjectDir)out\Resources\**\*" />
+      <ModResourceFiles Include="$(ProjectDir)out\Resources\**\*" Exclude="$(ProjectDir)out\Resources\**\*\" />
     </ItemGroup>
-    <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(ModsDir)" />
+    <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(ModsDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(ModResourceFiles)" DestinationFolder="$(ModsDir)Resources\%(RecursiveDir)" SkipUnchangedFiles="true" />
     <Message Text="Mod deployed to game directory: $(ModsDir)" Importance="high" />
     <Exec Command="start &quot;&quot; &quot;$(GameExePath)&quot;" IgnoreExitCode="true" Condition="'$(AutoLaunchGame)' == 'true'" />
     <Message Text="Game launched: $(GameExePath)" Importance="high" Condition="'$(AutoLaunchGame)' == 'true'" />
