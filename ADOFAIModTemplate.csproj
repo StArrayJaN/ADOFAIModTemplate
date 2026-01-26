@@ -315,7 +315,7 @@
     <Message Text="Files copied to out folder: $(OutDir)" Importance="high" />
   </Target>
 
-  <Target Name="DeployAndLaunch" AfterTargets="CopyToOut" Condition="'$(GameExePath)' != '' AND '$(GameExePath)' != 'GAME_EXE_PATH_PLACEHOLDER' AND Exists('$(GameExePath)')">
+  <Target Name="DeployAndLaunch" AfterTargets="CopyToOut" Condition="'$(GameExePath)' != '' AND Exists('$(GameExePath)')">
     <PropertyGroup>
       <GameDir>$([System.IO.Path]::GetDirectoryName($(GameExePath)))</GameDir>
       <ModsDir>$(GameDir)\Mods\$(AssemblyName)\</ModsDir>
