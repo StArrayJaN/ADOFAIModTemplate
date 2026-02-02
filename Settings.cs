@@ -1,5 +1,6 @@
 using UnityModManagerNet;
 using UnityEngine;
+
 namespace ADOFAIModTemplate
 {
     /// <summary>

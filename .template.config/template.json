@@ -42,8 +42,12 @@
       "type": "parameter",
       "datatype": "text",
       "replaces": "GAME_EXE_PATH_PLACEHOLDER",
-      "defaultValue": "",
-      "description": "游戏 exe 路径（可选，用于自动部署和启动）"
+      "isRequired": true,
+      "description": "游戏 exe 路径（必填，用于添加程序集引用，自动部署和启动）"
+    },
+    "ValidateGameExePath": {
+      "type": "computed",
+      "value": "(GameExePath != \"\" && GameExePath != \"GAME_EXE_PATH_PLACEHOLDER\")"
     }
   },
   "sources": [

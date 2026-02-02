@@ -14,8 +14,8 @@ Project Root / 项目根目录/
 ├── Patches.cs                   # Harmony patches / Harmony 补丁
 ├── Info.json                    # UMM mod info file / UMM Mod 信息文件
 ├── Properties/
-│   └── AssemblyInfo.cs          # Assembly info / 程序集信息
-└── lib/                         # Game dependencies (add manually) / 游戏依赖库（需要手动添加）
+    └── AssemblyInfo.cs          # Assembly info / 程序集信息
+
 ```
 
 ## Features / 功能特性
@@ -94,29 +94,6 @@ After installing the template, you can also create projects directly from your I
 ```bash
 dotnet new uninstall StArray.ADOFAIModTemplate
 ```
-
-## Setup Dependencies / 依赖库设置
-
-The template requires ADOFAI game dependencies. Copy the game DLL files to the `lib/` folder:
-
-模板需要 ADOFAI 游戏的依赖库。请将游戏的 DLL 文件复制到 `lib/` 文件夹：
-
-```
-lib/
-├── ModManager/
-│   ├── 0Harmony.dll
-│   └── UnityModManager.dll
-├── Assembly-CSharp.dll
-├── UnityEngine.dll
-└── ... (other Unity modules / 其他 Unity 模块)
-```
-
-You can find these files in the game installation directory:
-
-你可以从游戏安装目录的以下位置找到这些文件：
-
-- `<Game Directory>/A Dance of Fire and Ice_Data/Managed/`
-- `<Game Directory>/A Dance of Fire and Ice_Data/Managed/UnityModManager/` (UMM related DLLs / UMM 相关 DLL)
 
 ## Build Project / 构建项目
 
