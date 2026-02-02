@@ -84,11 +84,10 @@ After installing the template, you can also create projects directly from your I
 - **JetBrains Rider**: 文件（在编辑器中）-> 新建解决方案 -> 自定义模板 -> Base ADOFAI Mod Template
 
 ### Parameters / 参数说明
-- `-n, --name`: Project name (required, replaces all ADOFAIModTemplate) / 项目名称（必需，会自动替换所有 ADOFAIModTemplate）
 - `-d, --description`: Mod description / Mod 描述
 - `-a, --author`: Author name / 作者名称
 - `-v, --version`: Version number / 版本号
-- `-g, --game-path`: Game exe path (optional, for auto-deploy and launch) / 游戏 exe 路径（可选，用于自动部署和启动游戏）
+- `-g, --game-path`: Game exe path (optional, for auto-deploy and launch) / 游戏 exe 路径
 
 ### Uninstall Template / 卸载模板
 ```bash
